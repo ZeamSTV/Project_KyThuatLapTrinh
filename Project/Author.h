@@ -1,20 +1,27 @@
+#pragma once
 #include <iostream>
-#include <list>
+#include <vector>
+#include <string>
 #include "Book.h"
 
 using namespace std;
 
-class Author
-{
+class AuthorBook{
+	
 public:
-	Author() = default;
+	AuthorBook();
+	AuthorBook(string id, string fullname, string brithday);
 	void addWrittenBooks();
 	void showWrittenBooks();
-	Author(string id, string fullname, string brithday);
-	string idauthor;
+public:
+	string idAuthor;
 	string fullname;
 	string birthday;
-	std::list<Book> writtenbooks;
+	std::vector<Book> writtenbooks;
+
+	bool operator==(const AuthorBook& other) const {
+		return (this->idAuthor == other.idAuthor);
+	}
 
 };
 

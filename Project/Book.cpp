@@ -24,7 +24,7 @@ string Book::getAuthor() const {
     return author;
 }
 
-BookStatus Book::getStatus()
+BookStatus Book::getStatus() const
 {
     return status;
 }

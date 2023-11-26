@@ -18,7 +18,7 @@ public:
 	int getBookID() const;
 	string getTitle() const;
 	string getAuthor() const;
-	BookStatus getStatus();
+	BookStatus getStatus() const;
 	void setBookID(int BookID);
 	void setTitle(const string& title);
 	void setAuthor(const string& author);

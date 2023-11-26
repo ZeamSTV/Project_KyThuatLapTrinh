@@ -1,12 +1,12 @@
 #include "ListAuthor.h"
 #include "Author.h"
-#include <list>
+#include <vector>
 
 void ListAuthor::addAuthor()
 {
-	Author au;
+	AuthorBook au = AuthorBook();
 	cout << "Enter Id: ";
-	cin >> au.idauthor;
+	cin >> au.idAuthor;
 	cout << "Enter Full Name: ";
 	cin >> au.fullname;
 	cout << "Enter BirthDay: ";
@@ -19,10 +19,10 @@ void ListAuthor::searchAuthor()
 	string idauthor;
 	cout << "Enter ID: ";
 	cin >> idauthor;
-	for (Author author: listAuthor)
+	for (AuthorBook author: listAuthor)
 	{
-		if (idauthor == author.idauthor) {
-			cout << author.idauthor << "-" << author.fullname << "-" << author.birthday;
+		if (idauthor == author.idAuthor) {
+			cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday;
 			author.showWrittenBooks();
 		}
 	}
@@ -33,24 +33,29 @@ void ListAuthor::updateAuthor()
 	addAuthor();
 }
 
+
+
 void ListAuthor::deteleAuhtor()
 {
-	string idauthor;
+	AuthorBook authorDeleted;
 	cout << "Enter ID: ";
-	cin >> idauthor;
-	for (Author author : listAuthor)
-	{
-		if (idauthor == author.idauthor) {
-			listAuthor.remove(author);
+	cin >> authorDeleted.idAuthor;
+
+	for (auto it = listAuthor.begin(); it != listAuthor.end(); ++it) {
+		if (*it == authorDeleted) {
+			listAuthor.erase(it);
+			std::cout << "Object was deleted" << std::endl;
+			return;
 		}
 	}
+
 }
 
 void ListAuthor::showAll()
 {
-	for (Author author : listAuthor)
+	for (AuthorBook author : listAuthor)
 	{
-		cout << author.idauthor << "-" << author.fullname << "-" << author.birthday;
+		cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday;
 		author.showWrittenBooks();
 	}
 

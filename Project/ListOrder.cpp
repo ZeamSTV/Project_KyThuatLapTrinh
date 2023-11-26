@@ -49,7 +49,8 @@ void ListOrder::deteleOrder()
 	string namepatron;
 	for (PurchaseOrder order : listOrder) {
 		if (order.patron.name == namepatron) {
-			listOrder.remove(order);
+			auto it = std::find(listOrder.begin(), listOrder.end(), order);
+			listOrder.erase(it);
 		}
 	}
 }

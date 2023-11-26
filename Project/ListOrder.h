@@ -1,10 +1,10 @@
 #pragma once
 #include "PurchaseOrder.h"
-#include <list>
+#include <vector>
 class ListOrder
 {
 public:
-	static std::list<PurchaseOrder> listOrder;
+	std::vector<PurchaseOrder> listOrder;
 	void createOrder();
 	void searchOrder();
 	void updateOrder();

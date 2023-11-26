@@ -1,11 +1,11 @@
 #pragma once
-#include <list>
+#include <vector>
 #include "Author.h"
 
 class ListAuthor
 {
 public:
-	static std::list<Author> listAuthor;
+	std::vector<AuthorBook> listAuthor;
 	void addAuthor();
 	void searchAuthor();
 	void updateAuthor();

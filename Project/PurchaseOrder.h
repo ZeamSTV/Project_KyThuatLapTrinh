@@ -8,5 +8,8 @@ public:
 	Book bookOrder;
 	void displayOrder();
 
+	bool operator==(const PurchaseOrder& other) const {
+		return (this->patron.name == other.patron.name);
+	}
 };
 
