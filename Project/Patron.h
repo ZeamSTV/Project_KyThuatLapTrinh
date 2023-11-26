@@ -3,7 +3,12 @@
 using namespace std;
 class Patron
 {
-public:
-	string name;
+	public:
+		int patronID;
+		string name;
+		bool hasBook;
+		bool borrowingPrivilege;
+	public: 
+		Patron(int patronID, string name);
 };
 
