@@ -1,10 +1,13 @@
 #pragma once
 #include "LibraryStaff.h"
 #include "PublishingHouse.h"
+#include <list> 
+
+#include "Book.h"
 
 class Library {
 public:
-    Library() = default;
+    Library();
 
     void addLibraryStaff();
     void removeLibraryStaff();
@@ -18,6 +21,8 @@ public:
     PublishingHouse* searchPublishingHouse(const std::string& keyword);
     void viewPublishingHouses();
 
+    list<Book> books;
+
     public :
     
     static const int MAX_READERS = 100;
@@ -30,4 +35,14 @@ public:
     int libraryStaffCount = 0;
     int publishingHouseCount = 0;
     
+
+
+
+    void addBook();
+
+    void updateBook();
+
+    void removeBook();
+
+    void displayBooks() const;
 };

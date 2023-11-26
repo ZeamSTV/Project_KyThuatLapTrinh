@@ -222,3 +222,87 @@ void Library::viewPublishingHouses() {
         cout << "ID: " << publishingHouses[i].getId() << ", Name: " << publishingHouses[i].getName() << ", Address: " << publishingHouses[i].getAddress() << endl;
     }
 }
+
+Library::Library() {
+    Book book1;
+    book1.setBookID(1);
+    book1.setTitle("Book Title 1");
+    book1.setAuthor("Author 1");
+
+    Book book2;
+    book2.setBookID(2);
+    book2.setTitle("Book Title 2");
+    book2.setAuthor("Author 2");
+
+    books.push_back(book1);
+    books.push_back(book2);
+}
+
+void Library::addBook() {
+    Book newBook;
+    cout << "Please Enter ID of the Book : " << endl;
+    cin >> newBook.BookID;
+    cout << "Please Enter Author's Name : " << endl;
+    cin >> newBook.author;
+    cout << "Please Enter the Title of the Book : " << endl;
+    cin >> newBook.title;
+    books.push_back(newBook);
+}
+
+
+void Library::updateBook() {
+    int bookID;
+    cout << "Please enter the Book ID you want to update: ";
+    cin >> bookID;
+
+    Book updatedBook;
+
+    for (auto& book : books) {
+        if (book.getBookID() == bookID) {
+            updatedBook = book;
+            cout << "Current Book Information:" << endl;
+            cout << "Book ID: " << book.getBookID() << endl;
+            cout << "Title: " << book.getTitle() << endl;
+            cout << "Author: " << book.getAuthor() << endl;
+            
+            cout << "Enter new Title: ";
+            cin.ignore(); 
+            getline(cin, updatedBook.title);
+
+            cout << "Enter new Author's name: ";
+            getline(cin, updatedBook.author);
+
+            book = updatedBook;
+
+            cout << "Book updated successfully!" << endl;
+            return;
+
+        }
+    }
+    cout << "Book with ID " << bookID << " not found." << endl;
+}
+
+void Library::removeBook() {
+    int bookID;
+    cout << "Please enter the Book ID you want to remove: ";
+    cin >> bookID;
+
+    for (auto it = books.begin(); it != books.end(); it++) {
+        if (it->getBookID() == bookID) {
+            it = books.erase(it); 
+            cout << "Book with ID " << bookID << " removed successfully." << endl;
+            return;
+        }
+    }
+    cout << "Book with ID " << bookID << " not found." << endl;
+}
+
+void Library::displayBooks() const {
+    cout << "List of Books:" << endl;
+    for (const auto& book : books) {
+        cout << "Book ID: " << book.getBookID() << endl;
+        cout << "Title: " << book.getTitle() << endl;
+        cout << "Author: " << book.getAuthor() << endl;
+        cout << endl;
+    }
+}

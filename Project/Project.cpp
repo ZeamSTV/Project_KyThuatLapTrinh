@@ -80,6 +80,47 @@ void publishingHouseMenu(Library& library) {
     } while (choice != 0);
 }
 
+void bookMenu(Library& library) {
+    int choice;
+    do {
+        cout << "----- Menu -----" << endl;
+        cout << "1. Add Book" << endl;
+        cout << "2. Update Book" << endl;
+        cout << "3. Remove Book" << endl;
+        cout << "4. Display Books" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        switch (choice) {
+        case 1: {
+            library.addBook();
+            break;
+        }
+        case 2: {
+            library.updateBook();
+            break;
+        }
+        case 3: {
+            library.removeBook();
+            break;
+        }
+        case 4: {
+
+            library.displayBooks();
+            break;
+        }
+        case 5: {
+            cout << "Exiting..." << endl;
+            break;
+        }
+        default:
+            cout << "Invalid choice. Please enter a valid choice." << endl;
+        }
+    } while (choice != 5);
+}
+
 int main() {
     Library library;
 
@@ -88,6 +129,7 @@ int main() {
         cout << "\n--- Main Menu ---\n";
         cout << "1. Library Staff\n";
         cout << "2. Publishing House\n";
+        cout << "3. Book\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> roleChoice;
@@ -98,6 +140,9 @@ int main() {
             break;
         case 2:
             publishingHouseMenu(library);
+            break;
+        case 3:
+            bookMenu(library);
             break;
         case 0:
             cout << "Exiting the program. Goodbye!\n";
