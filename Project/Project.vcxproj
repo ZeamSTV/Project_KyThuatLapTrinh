@@ -127,17 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Author.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Library.cpp" />
     <ClCompile Include="LibraryStaff.cpp" />
+    <ClCompile Include="ListAuthor.cpp" />
+    <ClCompile Include="ListOrder.cpp" />
+    <ClCompile Include="Patron.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="PublishingHouse.cpp" />
+    <ClCompile Include="PurchaseOrder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Author.h" />
+    <ClInclude Include="BasicType.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="LibraryStaff.h" />
+    <ClInclude Include="ListAuthor.h" />
+    <ClInclude Include="ListOrder.h" />
+    <ClInclude Include="Patron.h" />
     <ClInclude Include="PublishingHouse.h" />
+    <ClInclude Include="PurchaseOrder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

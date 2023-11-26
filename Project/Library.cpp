@@ -303,6 +303,7 @@ void Library::displayBooks() const {
         cout << "Book ID: " << book.getBookID() << endl;
         cout << "Title: " << book.getTitle() << endl;
         cout << "Author: " << book.getAuthor() << endl;
+        cout << "Status: " << book.status << endl;
         cout << endl;
     }
 }

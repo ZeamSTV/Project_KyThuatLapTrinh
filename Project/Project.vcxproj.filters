@@ -30,6 +30,21 @@
     <ClCompile Include="Book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Author.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListAuthor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PurchaseOrder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Patron.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListOrder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibraryStaff.h">
@@ -42,6 +57,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Book.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Author.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListAuthor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PurchaseOrder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patron.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListOrder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
