@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 
 #include "Library.h"
+#include "Patron.h"
 
 using namespace std;
 
@@ -130,6 +131,8 @@ int main() {
         cout << "1. Library Staff\n";
         cout << "2. Publishing House\n";
         cout << "3. Book\n";
+        cout << "4. Manage library book borrowing\n";
+        cout << "5. Manage library book returning\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> roleChoice;
@@ -144,6 +147,13 @@ int main() {
         case 3:
             bookMenu(library);
             break;
+        case 4: {
+            Patron test(1, "truk");
+            Book b(1, "sach1", "tacgia");
+            test.borrowBook(b);
+            test.borrowBook(b);
+            break;
+        }
         case 0:
             cout << "Exiting the program. Goodbye!\n";
             break;

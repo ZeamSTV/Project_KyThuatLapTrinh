@@ -45,6 +45,9 @@
     <ClCompile Include="ListOrder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BorrowingRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibraryStaff.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ListOrder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BorrowingRecord.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
