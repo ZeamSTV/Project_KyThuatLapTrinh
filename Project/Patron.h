@@ -15,6 +15,7 @@ class Patron
 		vector<BorrowingRecord> br;
 	public: 
 		Patron(int patronID, string name);
+		Patron() = default;
 		void borrowBook(Book b);
 		void returnBook();
 };

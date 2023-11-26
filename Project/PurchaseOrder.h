@@ -7,6 +7,6 @@ public:
 	Patron patron;
 	Book bookOrder;
 	void displayOrder();
-
+	PurchaseOrder() = default;
 };
 
