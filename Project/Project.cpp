@@ -47,8 +47,7 @@ void libraryStaffMenu(Library& library) {
     } while (choice != 0);
 }
 
-void PatronMenu() {
-    PatronMangement pm;
+void PatronMenu(PatronMangement& pm) {
     int choice;
     do {
         cout << "\n--- Patron Menu ---\n";
@@ -194,6 +193,7 @@ void bookMenu(Library& library) {
 int main() {
     Library library;
     BorrowingRecordManagement brm;
+    PatronMangement pm;
 
     int roleChoice = 100;
     do {
@@ -223,12 +223,16 @@ int main() {
             bookMenu(library);
             break;
         case 4:
-        {   Patron test(1, "truk");
-            Book b(1, "sach1", "tacgia");
-            test.borrowBook(b, brm);
-            test.returnBook(brm);
-            test.borrowBook(b, brm);
-            test.displayBorrowHistoty();
+        {   
+            Patron* test = pm.searchPatron();
+            if (test != nullptr) {
+                //Gia su tim duoc book b qua searchBook;
+                Book b(1, "sach1", "tacgia");
+                test->borrowBook(b, brm);
+                test->returnBook(brm);
+                test->borrowBook(b, brm);
+                test->displayBorrowHistoty();
+            }
             break;
         }
         case 6:{
@@ -241,7 +245,7 @@ int main() {
             lo.displayMenu();
             break;}
         case 8: {
-            PatronMenu();
+            PatronMenu(pm);
             break;
         }
         case 9: {

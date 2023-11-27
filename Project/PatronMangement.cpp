@@ -44,6 +44,7 @@ Patron* PatronMangement::searchPatron() {
             return &patron; 
         }
     }
+    cout << "Patron with ID " << patronID << " not found.\n";
     return nullptr;
 }
 
