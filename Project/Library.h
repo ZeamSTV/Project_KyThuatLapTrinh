@@ -12,13 +12,14 @@ public:
     void addLibraryStaff();
     void removeLibraryStaff();
     void updateLibraryStaff();
-    LibraryStaff* searchLibraryStaff(const std::string& keyword);
+    void searchLibraryStaff();
     void viewLibraryStaff();
 
     void addPublishingHouse();
     void removePublishingHouse();
     void updatePublishingHouse();
-    PublishingHouse* searchPublishingHouse(const std::string& keyword);
+    
+    void searchPublishingHouse();
     void viewPublishingHouses();
 
     list<Book> books;

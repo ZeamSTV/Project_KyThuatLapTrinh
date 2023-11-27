@@ -29,7 +29,7 @@ void libraryStaffMenu(Library& library) {
             library.updateLibraryStaff();
             break;
         case 4:
-            library.searchLibraryStaff("");
+            library.searchLibraryStaff();
             break;
         case 5:
             library.viewLibraryStaff();
@@ -67,7 +67,7 @@ void publishingHouseMenu(Library& library) {
             library.updatePublishingHouse();
             break;
         case 4:
-            library.searchPublishingHouse("");
+            library.searchPublishingHouse();
             break;
         case 5:
             library.viewPublishingHouses();
