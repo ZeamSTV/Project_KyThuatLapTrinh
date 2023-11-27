@@ -135,6 +135,7 @@
     <ClCompile Include="ListAuthor.cpp" />
     <ClCompile Include="ListOrder.cpp" />
     <ClCompile Include="Patron.cpp" />
+    <ClCompile Include="PatronMangement.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="PublishingHouse.cpp" />
     <ClCompile Include="PurchaseOrder.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="ListAuthor.h" />
     <ClInclude Include="ListOrder.h" />
     <ClInclude Include="Patron.h" />
+    <ClInclude Include="PatronMangement.h" />
     <ClInclude Include="PublishingHouse.h" />
     <ClInclude Include="PurchaseOrder.h" />
   </ItemGroup>

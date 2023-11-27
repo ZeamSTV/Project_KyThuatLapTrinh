@@ -8,6 +8,7 @@ Patron::Patron(int patronID, string name) {
 	this->borrowingPrivilege = true;
 }
 
+
 void Patron::borrowBook(Book b) {
 	if (hasBook == false && borrowingPrivilege == true) {
 		BorrowingRecord newbr(patronID,b);
