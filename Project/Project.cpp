@@ -4,7 +4,9 @@
 #include "Patron.h"
 #include "ListAuthor.h"
 #include "ListOrder.h"
+#include "Account.h"
 #include "BorrowingRecordManagement.h"
+
 
 
 using namespace std;
@@ -194,12 +196,54 @@ void bookMenu(Library& library) {
         }
     } while (choice != 6);
 }
+void accountMenu(vector<Account>& accountList, Account& admin) {
+    int choice;
+    do {
+        cout << "Accounts Management System" << endl;
+        cout << "1. List Accounts" << endl;
+        cout << "2. Add New Account" << endl;
+        cout << "3. Delete Account" << endl;
+        cout << "4. Search" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
 
+        switch (choice) {
+        case 1:
+            admin.listAccounts(accountList);
+            break;
+        case 2:
+            admin.addNewAccount(accountList);
+            break;
+        case 3: {
+            string username;
+            cout << "Enter username to delete: ";
+            cin >> username;
+            admin.deleteAccount(accountList, username);
+            break;
+        }
+        case 4: {
+            string username;
+            cout << "Enter username to search: ";
+            cin >> username;
+            admin.searchAccount(accountList, username);
+            break;
+        }
+        case 5:
+            cout << "Exiting..." << endl;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (choice != 5);
+}
 int main() {
     Library library;
+    vector<Account> accountList;
+    Account admin("admin", "password");
+    accountList.push_back(admin);
     BorrowingRecordManagement brm;
     PatronMangement pm;
-
     int roleChoice = 100;
     do {
         cout << "\n--- Main Menu ---\n";
@@ -210,6 +254,7 @@ int main() {
         cout << "5. Manage library book returning\n";
         cout << "6. Manage Author" << endl;
         cout << "7. Manage Purchase Order" << endl;
+        cout << "8. Account Manager" << endl;
         cout << "8. Manage Patron" << endl;
         cout << "9. Manage Borrowing Record" << endl;
         cout << "0. Exit\n";
@@ -256,6 +301,9 @@ int main() {
         case 9: {
             BorrowingRecordMenu(brm);
             break;
+        }
+        case 8:{
+            accountMenu(accountList, admin);
         }
         case 0:
             cout << "Exiting the program. Goodbye!\n";

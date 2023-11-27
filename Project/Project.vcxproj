@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
     <ClCompile Include="Author.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="BorrowingRecord.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="PurchaseOrder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
     <ClInclude Include="Author.h" />
     <ClInclude Include="BasicType.h" />
     <ClInclude Include="Book.h" />
