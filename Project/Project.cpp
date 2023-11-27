@@ -151,7 +151,9 @@ int main() {
             Patron test(1, "truk");
             Book b(1, "sach1", "tacgia");
             test.borrowBook(b);
+            test.returnBook();
             test.borrowBook(b);
+            test.displayBorrowHistoty();
             break;
         }
         case 0:
