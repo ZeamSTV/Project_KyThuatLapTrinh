@@ -3,18 +3,18 @@
 #include "ListAuthor.h"
 #include <list>
 
-AuthorBook::AuthorBook() {
+Author::Author() {
 
 }
 
-AuthorBook::AuthorBook(string id, string fullname, string brithday)
+Author::Author(string id, string fullname, string brithday)
 {
 	this->idAuthor = id;
 	this->fullname = fullname;
 	this->birthday = brithday;
 }
 
-void AuthorBook::addWrittenBooks ()
+void Author::addWrittenBooks ()
 {
 	Library lib;
 	string titleBook;
@@ -32,7 +32,7 @@ void AuthorBook::addWrittenBooks ()
 	cout << "Not found this book in library";
 }
 
-void AuthorBook::showWrittenBooks()
+void Author::showWrittenBooks()
 {
 	Library lib;
 	for (Book book : lib.books) {
