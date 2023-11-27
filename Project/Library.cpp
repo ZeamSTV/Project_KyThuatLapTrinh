@@ -243,6 +243,28 @@ Library::Library() {
     books.push_back(book2);
 }
 
+void Library::searchBookByID() const {
+    int bookID;
+    cout << "Please enter the Book ID you want to find: ";
+    cin >> bookID;
+    bool found = false;
+
+    for (const auto& book : books) {
+        if (book.getBookID() == bookID) {
+            cout << "Book found:" << endl;
+            cout << "Book ID: " << book.getBookID() << endl;
+            cout << "Title: " << book.getTitle() << endl;
+            cout << "Author: " << book.getAuthor() << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Book with ID " << bookID << " not found." << endl;
+    }
+}
+
 void Library::addBook() {
     Book newBook;
     cout << "Please Enter ID of the Book : " << endl;

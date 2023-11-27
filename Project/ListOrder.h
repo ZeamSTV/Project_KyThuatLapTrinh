@@ -10,5 +10,6 @@ public:
 	void updateOrder();
 	void deteleOrder();
 	void showAll();
+	void displayMenu();
 };
 

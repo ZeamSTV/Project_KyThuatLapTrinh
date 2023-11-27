@@ -48,6 +48,16 @@
     <ClCompile Include="BorrowingRecord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="Account.cpp">
+=======
+    <ClCompile Include="PatronMangement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BorrowingRecordManagement.cpp">
+>>>>>>> 20b83764ca90e39aaa67ecd56d455f617267c7a5
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibraryStaff.h">
@@ -81,6 +91,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BorrowingRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Account.h">
+=======
+    <ClInclude Include="PatronMangement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BorrowingRecordManagement.h">
+>>>>>>> 20b83764ca90e39aaa67ecd56d455f617267c7a5
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
