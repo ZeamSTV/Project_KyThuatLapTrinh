@@ -2,6 +2,9 @@
 
 #include "Library.h"
 #include "Patron.h"
+#include "ListAuthor.h"
+#include "ListOrder.h"
+
 
 using namespace std;
 
@@ -125,7 +128,7 @@ void bookMenu(Library& library) {
 int main() {
     Library library;
 
-    int roleChoice;
+    int roleChoice = 100;
     do {
         cout << "\n--- Main Menu ---\n";
         cout << "1. Library Staff\n";
@@ -133,11 +136,14 @@ int main() {
         cout << "3. Book\n";
         cout << "4. Manage library book borrowing\n";
         cout << "5. Manage library book returning\n";
+        cout << "6. Manage Author" << endl;
+        cout << "7. Manage Purchase Order" << endl;
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> roleChoice;
 
-        switch (roleChoice) {
+        switch (roleChoice) 
+        {
         case 1:
             libraryStaffMenu(library);
             break;
@@ -147,18 +153,29 @@ int main() {
         case 3:
             bookMenu(library);
             break;
-        case 4: {
-            Patron test(1, "truk");
+        case 4:
+        {   Patron test(1, "truk");
             Book b(1, "sach1", "tacgia");
             test.borrowBook(b);
             test.borrowBook(b);
-            break;
-        }
+            break;}
+            
+        case 6:{
+            ListAuthor la;
+            la.displayMenu();
+            break;}
+            
+        case 7:{
+            ListOrder lo;
+            lo.displayMenu();
+            break;}
+            
         case 0:
             cout << "Exiting the program. Goodbye!\n";
             break;
         default:
             cout << "Invalid choice. Please try again.\n";
+            break;
         }
     } while (roleChoice != 0);
 

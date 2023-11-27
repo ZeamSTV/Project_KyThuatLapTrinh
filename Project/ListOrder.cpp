@@ -61,3 +61,35 @@ void ListOrder::showAll()
 		order.displayOrder();
 	}
 }
+
+void ListOrder::displayMenu()
+{
+	int choose = 100;
+	do {
+		cout << "-------Menu Purchase Order Book--------" << endl;
+		cout << "----1:Show All Order Book" << endl;
+		cout << "----2:Create Order Book" << endl;
+		cout << "----3:Search Order Book" << endl;
+		cout << "----4:Delete Order Book" << endl;
+		cout << "----5:Update Order Book" << endl;
+		cout << "----0: Quit" << endl;
+		cout << "Please choose Feature" << endl;
+		cin >> choose;
+
+		switch (choose)
+		{
+		case 1: showAll();
+			break;
+		case 2: createOrder();
+			break;
+		case 3: searchOrder();
+			break;
+		case 4: deteleOrder();
+			break;
+		case 5: updateOrder();
+			break;
+		default: cout << "Invalid choice. Please try again" << endl;
+			break;
+		}
+	} while (choose != 0);
+}
