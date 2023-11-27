@@ -211,7 +211,6 @@ void Library::searchPublishingHouse() {
         if (publishingHouses[i].getId() == idPublish) {
             // Display the found publishing house
             cout << "Found publishing house: ID=" << publishingHouses[i].getId() << ", Name=" << publishingHouses[i].getName() << ", Address=" << publishingHouses[i].getAddress() << endl;
-         
         }
         else if (publishingHouses[i].getId() != idPublish) {
             cout << "Publishing house not found." << endl;

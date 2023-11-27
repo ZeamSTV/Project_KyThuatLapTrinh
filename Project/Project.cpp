@@ -302,8 +302,9 @@ int main() {
             BorrowingRecordMenu(brm);
             break;
         }
-        case 8:{
+        case 10:{
             accountMenu(accountList, admin);
+            break;
         }
         case 0:
             cout << "Exiting the program. Goodbye!\n";
