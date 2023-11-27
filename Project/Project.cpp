@@ -276,12 +276,22 @@ int main() {
         {   
             Patron* test = pm.searchPatron();
             if (test != nullptr) {
-                //Gia su tim duoc book b qua searchBook;
-                Book b(1, "sach1", "tacgia");
-                test->borrowBook(b, brm);
-                test->returnBook(brm);
-                test->borrowBook(b, brm);
-                test->displayBorrowHistoty();
+                Book b = library.searchBookByID();
+                if (b.title != "") {
+                    test->borrowBook(b, brm);
+                    test->displayBorrowHistoty();
+                }
+            }
+            break;
+        }
+        case 5: {
+            Patron* test = pm.searchPatron();
+            if (test != nullptr) {
+                Book b = library.searchBookByID();
+                if (b.title != "") {
+                    test->returnBook(brm);
+                    test->displayBorrowHistoty();
+                }
             }
             break;
         }

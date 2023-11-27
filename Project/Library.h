@@ -37,7 +37,7 @@ public:
     int publishingHouseCount = 0;
     
 
-    void searchBookByID() const;
+    Book searchBookByID() const;
 
     void addBook();
 
