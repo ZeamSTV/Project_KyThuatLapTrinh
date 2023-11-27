@@ -157,7 +157,8 @@ void bookMenu(Library& library) {
         cout << "2. Update Book" << endl;
         cout << "3. Remove Book" << endl;
         cout << "4. Display Books" << endl;
-        cout << "5. Exit" << endl;
+        cout << "5. Search Books By ID" << endl;
+        cout << "6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -181,13 +182,17 @@ void bookMenu(Library& library) {
             break;
         }
         case 5: {
+            library.searchBookByID();
+            break;
+        }
+        case 6: {
             cout << "Exiting..." << endl;
             break;
         }
         default:
             cout << "Invalid choice. Please enter a valid choice." << endl;
         }
-    } while (choice != 5);
+    } while (choice != 6);
 }
 
 int main() {
