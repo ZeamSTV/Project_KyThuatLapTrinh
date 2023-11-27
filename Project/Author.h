@@ -6,11 +6,11 @@
 
 using namespace std;
 
-class AuthorBook{
+class Author{
 	
 public:
-	AuthorBook();
-	AuthorBook(string id, string fullname, string brithday);
+	Author();
+	Author(string id, string fullname, string brithday);
 	void addWrittenBooks();
 	void showWrittenBooks();
 public:
@@ -19,7 +19,7 @@ public:
 	string birthday;
 	std::vector<Book> writtenbooks;
 
-	bool operator==(const AuthorBook& other) const {
+	bool operator==(const Author& other) const {
 		return (this->idAuthor == other.idAuthor);
 	}
 

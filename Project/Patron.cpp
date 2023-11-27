@@ -1,5 +1,6 @@
 #include "Patron.h"
 
+
 Patron::Patron(int patronID, string name) {
 	this->patronID = patronID;
 	this->name = name;
@@ -7,38 +8,48 @@ Patron::Patron(int patronID, string name) {
 	this->borrowingPrivilege = true;
 }
 
-void Patron::borrowBook(Book b) {
+
+void Patron::borrowBook(Book& b, BorrowingRecordManagement& brm) {
 	if (hasBook == false && borrowingPrivilege == true) {
-		BorrowingRecord newbr(b);
+		BorrowingRecord newbr(patronID,b);
 		br.push_back(newbr);
+		brm.borrowingRecordList.push_back(newbr);
 		hasBook = true;
-		cout << "Borrowed "<<b.title<<" successfully";
+		cout << "Borrowed "<<b.title<<" successfully\n";
 	}
 	else {
-		cout << "Can not borrow book";
+		cout << "Can not borrow book\n";
 	}
 }
 
-void Patron::returnBook() {
+void Patron::returnBook(BorrowingRecordManagement& brm) {
 	int brSize = br.size();
 	if (brSize != 0) {
-		time_t rtDate = br[brSize - 1].returnDate;
-		if (time(0) == rtDate) {
+		//sach phai duoc tra sau 12 ngay hoac som hon
+		time_t rtDate = br[brSize - 1].issueDate + 14*24*60*60;
+		if (time(0) <= rtDate) {
 			hasBook = false;
-			cout << "return successfully";
+			br[brSize - 1].returnDate = time(0);
+			for (BorrowingRecord& br : brm.borrowingRecordList) {
+				if (br.borrowingRecordID == this->br[brSize - 1].borrowingRecordID) {
+					br.returnDate = time(0);
+				}
+			}
+			cout << "return successfully\n";
 		}
 		else {
-			if (time(0) < rtDate) {
-				hasBook = false;
-				br[brSize - 1].returnDate = time(0);
-				cout << "return successfully";
-			}
-			else {
-				hasBook = false;
-				br[brSize - 1].returnDate = time(0);
-				borrowingPrivilege = false;
-				cout << "return successfully but the patron is blocked because of overdue return";
-			}
+			hasBook = false;
+			br[brSize - 1].returnDate = time(0);
+			borrowingPrivilege = false;
+			cout << "return successfully but the patron is blocked because of overdue return\n";
 		}
+	}
+}
+
+void Patron::displayBorrowHistoty() {
+	for(BorrowingRecord o:br)
+	{
+		cout << o.toString();
+		cout << "\n----------------";
 	}
 }

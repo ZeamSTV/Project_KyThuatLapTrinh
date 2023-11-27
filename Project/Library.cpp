@@ -88,24 +88,27 @@ void Library::updateLibraryStaff() {
 }
 
 
-LibraryStaff* Library::searchLibraryStaff(const string& keyword) {
+void Library::searchLibraryStaff() {
     // Input data from the user
+    int idStaff;
     cout << "Enter keyword to search for staff: ";
-    string userKeyword;  // Use a separate variable to store user input
-    getline(cin, userKeyword);
+    cin >> idStaff;
 
     // Search for the staff member with the specified keyword
     for (int i = 0; i < libraryStaffCount; ++i) {
-        if (libraryStaff[i].getName().find(userKeyword) != string::npos ||
-            libraryStaff[i].getEmail().find(userKeyword) != string::npos) {
+        if (libraryStaff[i].getId() == idStaff) {
             // Display the found staff member
             cout << "Found staff: ID=" << libraryStaff[i].getId() << ", Name=" << libraryStaff[i].getName() << ", Email=" << libraryStaff[i].getEmail() << endl;
-            return &libraryStaff[i];
+            
+        }
+        else if (libraryStaff[i].getId() != idStaff) {
+            cout << "Staff not found!" << endl;
+
         }
     }
 
-    cout << "Staff not found." << endl;
-    return nullptr;
+    
+    
 }
 
 
@@ -197,24 +200,25 @@ void Library::updatePublishingHouse() {
     cout << "Error: Publishing house with ID " << houseId << " not found." << endl;
 }
 
-PublishingHouse* Library::searchPublishingHouse(const string& keyword) {
+void Library::searchPublishingHouse() {
     // Input data from the user
+    int idPublish;
     cout << "Enter keyword to search for publishing house: ";
-    string userKeyword;  // Use a separate variable to store user input
-    getline(cin, userKeyword);
+    cin >> idPublish;
 
     // Search for the publishing house with the specified keyword
     for (int i = 0; i < publishingHouseCount; ++i) {
-        if (publishingHouses[i].getName().find(userKeyword) != string::npos ||
-            publishingHouses[i].getAddress().find(userKeyword) != string::npos) {
+        if (publishingHouses[i].getId() == idPublish) {
             // Display the found publishing house
             cout << "Found publishing house: ID=" << publishingHouses[i].getId() << ", Name=" << publishingHouses[i].getName() << ", Address=" << publishingHouses[i].getAddress() << endl;
-            return &publishingHouses[i];
+        }
+        else if (publishingHouses[i].getId() != idPublish) {
+            cout << "Publishing house not found." << endl;
         }
     }
 
-    cout << "Publishing house not found." << endl;
-    return nullptr;
+   
+    
 }
 
 void Library::viewPublishingHouses() {
@@ -236,6 +240,28 @@ Library::Library() {
 
     books.push_back(book1);
     books.push_back(book2);
+}
+
+void Library::searchBookByID() const {
+    int bookID;
+    cout << "Please enter the Book ID you want to find: ";
+    cin >> bookID;
+    bool found = false;
+
+    for (const auto& book : books) {
+        if (book.getBookID() == bookID) {
+            cout << "Book found:" << endl;
+            cout << "Book ID: " << book.getBookID() << endl;
+            cout << "Title: " << book.getTitle() << endl;
+            cout << "Author: " << book.getAuthor() << endl;
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        cout << "Book with ID " << bookID << " not found." << endl;
+    }
 }
 
 void Library::addBook() {

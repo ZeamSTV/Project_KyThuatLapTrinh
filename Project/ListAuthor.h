@@ -5,11 +5,12 @@
 class ListAuthor
 {
 public:
-	std::vector<AuthorBook> listAuthor;
+	std::vector<Author> listAuthor;
 	void addAuthor();
 	void searchAuthor();
 	void updateAuthor();
-	void deteleAuhtor();
+	void deteleAuthor();
 	void showAll();
+	void displayMenu();
 };
 
