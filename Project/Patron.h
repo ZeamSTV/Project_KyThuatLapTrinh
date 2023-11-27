@@ -3,6 +3,7 @@
 #include "Book.h"
 #include <vector>
 #include "BorrowingRecord.h"
+#include "BorrowingRecordManagement.h"
 using namespace std;
 class Patron
 {
@@ -16,8 +17,8 @@ class Patron
 	public: 
 		Patron() = default;
 		Patron(int patronID, string name);
-		void borrowBook(Book b);
-		void returnBook();
+		void borrowBook(Book& b, BorrowingRecordManagement& brm);
+		void returnBook(BorrowingRecordManagement& brm);
 		void displayBorrowHistoty();
 };
 

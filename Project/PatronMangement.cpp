@@ -38,7 +38,7 @@ Patron* PatronMangement::searchPatron() {
     int patronID;
     cout << "Enter patron id: ";
     cin >> patronID;
-    for (auto& patron : patronList) {
+    for (Patron& patron : patronList) {
         if (patron.patronID == patronID) {
             cout << "Patron ID: " << patron.patronID << ", Name: " << patron.name << std::endl;
             return &patron; 
@@ -49,7 +49,7 @@ Patron* PatronMangement::searchPatron() {
 
 void PatronMangement::viewAllPatrons() {
     cout << "List of Patrons:\n";
-    for (const auto& patron : patronList) {
+    for (const Patron& patron : patronList) {
         cout << "Patron ID: " << patron.patronID << ", Name: " << patron.name << std::endl;
     }
 }

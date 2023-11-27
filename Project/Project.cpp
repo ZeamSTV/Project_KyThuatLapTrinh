@@ -4,6 +4,7 @@
 #include "Patron.h"
 #include "ListAuthor.h"
 #include "ListOrder.h"
+#include "BorrowingRecordManagement.h"
 
 
 using namespace std;
@@ -71,6 +72,36 @@ void PatronMenu() {
             break;
         case 4:
             pm.viewAllPatrons();
+            break;
+        case 0:
+            cout << "Returning to Main Menu.\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 0);
+}
+
+void BorrowingRecordMenu(BorrowingRecordManagement& brm) {
+    int choice;
+    do {
+        cout << "\n--- Borrowing Record Menu ---\n";
+        cout << "1. Remove \n";
+        cout << "2. Search \n";
+        cout << "3. View \n";
+        cout << "0. Back to Main Menu\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            brm.deleteBorrowingRecord();
+            break;
+        case 2:
+            brm.searchBorrowingRecord();
+            break;
+        case 3:
+            brm.viewAllBorrowingRecords();
             break;
         case 0:
             cout << "Returning to Main Menu.\n";
@@ -162,6 +193,7 @@ void bookMenu(Library& library) {
 
 int main() {
     Library library;
+    BorrowingRecordManagement brm;
 
     int roleChoice = 100;
     do {
@@ -174,6 +206,7 @@ int main() {
         cout << "6. Manage Author" << endl;
         cout << "7. Manage Purchase Order" << endl;
         cout << "8. Manage Patron" << endl;
+        cout << "9. Manage Borrowing Record" << endl;
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> roleChoice;
@@ -192,9 +225,9 @@ int main() {
         case 4:
         {   Patron test(1, "truk");
             Book b(1, "sach1", "tacgia");
-            test.borrowBook(b);
-            test.returnBook();
-            test.borrowBook(b);
+            test.borrowBook(b, brm);
+            test.returnBook(brm);
+            test.borrowBook(b, brm);
             test.displayBorrowHistoty();
             break;
         }
@@ -209,6 +242,10 @@ int main() {
             break;}
         case 8: {
             PatronMenu();
+            break;
+        }
+        case 9: {
+            BorrowingRecordMenu(brm);
             break;
         }
         case 0:

@@ -9,10 +9,11 @@ Patron::Patron(int patronID, string name) {
 }
 
 
-void Patron::borrowBook(Book b) {
+void Patron::borrowBook(Book& b, BorrowingRecordManagement& brm) {
 	if (hasBook == false && borrowingPrivilege == true) {
 		BorrowingRecord newbr(patronID,b);
 		br.push_back(newbr);
+		brm.borrowingRecordList.push_back(newbr);
 		hasBook = true;
 		cout << "Borrowed "<<b.title<<" successfully\n";
 	}
@@ -21,7 +22,7 @@ void Patron::borrowBook(Book b) {
 	}
 }
 
-void Patron::returnBook() {
+void Patron::returnBook(BorrowingRecordManagement& brm) {
 	int brSize = br.size();
 	if (brSize != 0) {
 		//sach phai duoc tra sau 12 ngay hoac som hon
@@ -29,6 +30,11 @@ void Patron::returnBook() {
 		if (time(0) <= rtDate) {
 			hasBook = false;
 			br[brSize - 1].returnDate = time(0);
+			for (BorrowingRecord& br : brm.borrowingRecordList) {
+				if (br.borrowingRecordID == this->br[brSize - 1].borrowingRecordID) {
+					br.returnDate = time(0);
+				}
+			}
 			cout << "return successfully\n";
 		}
 		else {

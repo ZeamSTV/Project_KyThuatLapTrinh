@@ -5,6 +5,8 @@ using namespace std;
 class BorrowingRecord
 {
     public:
+        static int currentID;
+        int borrowingRecordID;
         int patronID;
         Book b;
         time_t issueDate;
