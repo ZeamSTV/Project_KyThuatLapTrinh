@@ -1,10 +1,12 @@
 ﻿#include <iostream>
-
+#include "PatronMangement.h"
 #include "Library.h"
 #include "Patron.h"
 #include "ListAuthor.h"
 #include "ListOrder.h"
 #include "Account.h"
+#include "BorrowingRecordManagement.h"
+
 
 
 using namespace std;
@@ -37,6 +39,70 @@ void libraryStaffMenu(Library& library) {
             break;
         case 5:
             library.viewLibraryStaff();
+            break;
+        case 0:
+            cout << "Returning to Main Menu.\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 0);
+}
+
+void PatronMenu(PatronMangement& pm) {
+    int choice;
+    do {
+        cout << "\n--- Patron Menu ---\n";
+        cout << "1. Add\n";
+        cout << "2. Remove \n";
+        cout << "3. Search \n";
+        cout << "4. View \n";
+        cout << "0. Back to Main Menu\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            pm.addPatron();
+            break;
+        case 2:
+            pm.deletePatron();
+            break;
+        case 3:
+            pm.searchPatron();
+            break;
+        case 4:
+            pm.viewAllPatrons();
+            break;
+        case 0:
+            cout << "Returning to Main Menu.\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 0);
+}
+
+void BorrowingRecordMenu(BorrowingRecordManagement& brm) {
+    int choice;
+    do {
+        cout << "\n--- Borrowing Record Menu ---\n";
+        cout << "1. Remove \n";
+        cout << "2. Search \n";
+        cout << "3. View \n";
+        cout << "0. Back to Main Menu\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            brm.deleteBorrowingRecord();
+            break;
+        case 2:
+            brm.searchBorrowingRecord();
+            break;
+        case 3:
+            brm.viewAllBorrowingRecords();
             break;
         case 0:
             cout << "Returning to Main Menu.\n";
@@ -93,7 +159,8 @@ void bookMenu(Library& library) {
         cout << "2. Update Book" << endl;
         cout << "3. Remove Book" << endl;
         cout << "4. Display Books" << endl;
-        cout << "5. Exit" << endl;
+        cout << "5. Search Books By ID" << endl;
+        cout << "6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -117,13 +184,17 @@ void bookMenu(Library& library) {
             break;
         }
         case 5: {
+            library.searchBookByID();
+            break;
+        }
+        case 6: {
             cout << "Exiting..." << endl;
             break;
         }
         default:
             cout << "Invalid choice. Please enter a valid choice." << endl;
         }
-    } while (choice != 5);
+    } while (choice != 6);
 }
 void accountMenu(vector<Account>& accountList, Account& admin) {
     int choice;
@@ -171,6 +242,8 @@ int main() {
     vector<Account> accountList;
     Account admin("admin", "password");
     accountList.push_back(admin);
+    BorrowingRecordManagement brm;
+    PatronMangement pm;
     int roleChoice = 100;
     do {
         cout << "\n--- Main Menu ---\n";
@@ -182,6 +255,8 @@ int main() {
         cout << "6. Manage Author" << endl;
         cout << "7. Manage Purchase Order" << endl;
         cout << "8. Account Manager" << endl;
+        cout << "8. Manage Patron" << endl;
+        cout << "9. Manage Borrowing Record" << endl;
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> roleChoice;
@@ -198,15 +273,36 @@ int main() {
             bookMenu(library);
             break;
         case 4:
-        {   Patron test(1, "truk");
-            Book b(1, "sach1", "tacgia");
-            test.borrowBook(b);
-            test.returnBook();
-            test.borrowBook(b);
+        {   
+            Patron* test = pm.searchPatron();
+            if (test != nullptr) {
+                //Gia su tim duoc book b qua searchBook;
+                Book b(1, "sach1", "tacgia");
+                test->borrowBook(b, brm);
+                test->returnBook(brm);
+                test->borrowBook(b, brm);
+                test->displayBorrowHistoty();
+            }
             break;
         }
-        case 8:
-        {
+        case 6:{
+            ListAuthor la;
+            la.displayMenu();
+            break;
+        }         
+        case 7:{
+            ListOrder lo;
+            lo.displayMenu();
+            break;}
+        case 8: {
+            PatronMenu(pm);
+            break;
+        }
+        case 9: {
+            BorrowingRecordMenu(brm);
+            break;
+        }
+        case 8:{
             accountMenu(accountList, admin);
         }
         case 0:

@@ -131,11 +131,13 @@
     <ClCompile Include="Author.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="BorrowingRecord.cpp" />
+    <ClCompile Include="BorrowingRecordManagement.cpp" />
     <ClCompile Include="Library.cpp" />
     <ClCompile Include="LibraryStaff.cpp" />
     <ClCompile Include="ListAuthor.cpp" />
     <ClCompile Include="ListOrder.cpp" />
     <ClCompile Include="Patron.cpp" />
+    <ClCompile Include="PatronMangement.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="PublishingHouse.cpp" />
     <ClCompile Include="PurchaseOrder.cpp" />
@@ -146,11 +148,13 @@
     <ClInclude Include="BasicType.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="BorrowingRecord.h" />
+    <ClInclude Include="BorrowingRecordManagement.h" />
     <ClInclude Include="Library.h" />
     <ClInclude Include="LibraryStaff.h" />
     <ClInclude Include="ListAuthor.h" />
     <ClInclude Include="ListOrder.h" />
     <ClInclude Include="Patron.h" />
+    <ClInclude Include="PatronMangement.h" />
     <ClInclude Include="PublishingHouse.h" />
     <ClInclude Include="PurchaseOrder.h" />
   </ItemGroup>
