@@ -196,6 +196,47 @@ void bookMenu(Library& library) {
         }
     } while (choice != 5);
 }
+void accountMenu(vector<Account>& accountList, Account& admin) {
+    int choice;
+    do {
+        cout << "Accounts Management System" << endl;
+        cout << "1. List Accounts" << endl;
+        cout << "2. Add New Account" << endl;
+        cout << "3. Delete Account" << endl;
+        cout << "4. Search" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            admin.listAccounts(accountList);
+            break;
+        case 2:
+            admin.addNewAccount(accountList);
+            break;
+        case 3: {
+            string username;
+            cout << "Enter username to delete: ";
+            cin >> username;
+            admin.deleteAccount(accountList, username);
+            break;
+        }
+        case 4: {
+            string username;
+            cout << "Enter username to search: ";
+            cin >> username;
+            admin.searchAccount(accountList, username);
+            break;
+        }
+        case 5:
+            cout << "Exiting..." << endl;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (choice != 5);
+}
 int main() {
     Library library;
     vector<Account> accountList;
@@ -235,12 +276,22 @@ int main() {
         {   
             Patron* test = pm.searchPatron();
             if (test != nullptr) {
-                //Gia su tim duoc book b qua searchBook;
-                Book b(1, "sach1", "tacgia");
-                test->borrowBook(b, brm);
-                test->returnBook(brm);
-                test->borrowBook(b, brm);
-                test->displayBorrowHistoty();
+                Book b = library.searchBookByID();
+                if (b.title != "") {
+                    test->borrowBook(b, brm);
+                    test->displayBorrowHistoty();
+                }
+            }
+            break;
+        }
+        case 5: {
+            Patron* test = pm.searchPatron();
+            if (test != nullptr) {
+                Book b = library.searchBookByID();
+                if (b.title != "") {
+                    test->returnBook(brm);
+                    test->displayBorrowHistoty();
+                }
             }
             break;
         }
