@@ -194,47 +194,6 @@ void bookMenu(Library& library) {
         default:
             cout << "Invalid choice. Please enter a valid choice." << endl;
         }
-    } while (choice != 6);
-}
-void accountMenu(vector<Account>& accountList, Account& admin) {
-    int choice;
-    do {
-        cout << "Accounts Management System" << endl;
-        cout << "1. List Accounts" << endl;
-        cout << "2. Add New Account" << endl;
-        cout << "3. Delete Account" << endl;
-        cout << "4. Search" << endl;
-        cout << "5. Exit" << endl;
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        switch (choice) {
-        case 1:
-            admin.listAccounts(accountList);
-            break;
-        case 2:
-            admin.addNewAccount(accountList);
-            break;
-        case 3: {
-            string username;
-            cout << "Enter username to delete: ";
-            cin >> username;
-            admin.deleteAccount(accountList, username);
-            break;
-        }
-        case 4: {
-            string username;
-            cout << "Enter username to search: ";
-            cin >> username;
-            admin.searchAccount(accountList, username);
-            break;
-        }
-        case 5:
-            cout << "Exiting..." << endl;
-            break;
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-        }
     } while (choice != 5);
 }
 int main() {
