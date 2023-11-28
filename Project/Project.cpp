@@ -6,7 +6,7 @@
 #include "ListOrder.h"
 #include "Account.h"
 #include "BorrowingRecordManagement.h"
-
+#include "Catalogue.h"
 
 
 using namespace std;
@@ -199,7 +199,7 @@ void bookMenu(Library& library) {
 void accountMenu(vector<Account>& accountList, Account& admin) {
     int choice;
     do {
-        cout << "Accounts Management System" << endl;
+        cout << "\nAccounts Management" << endl;
         cout << "1. List Accounts" << endl;
         cout << "2. Add New Account" << endl;
         cout << "3. Delete Account" << endl;
@@ -207,6 +207,7 @@ void accountMenu(vector<Account>& accountList, Account& admin) {
         cout << "5. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
+        cin.ignore();
 
         switch (choice) {
         case 1:
@@ -237,6 +238,49 @@ void accountMenu(vector<Account>& accountList, Account& admin) {
         }
     } while (choice != 5);
 }
+
+void catalogueMenu(Catalogue libraryCatalogue)
+{
+    int choice;
+    std::string title;
+
+    do {
+        cout << "\nBook Type Management" << endl;
+        cout << "1. List book type catalogue" << endl;
+        cout << "2. Add a book type" << endl;
+        cout << "3. Remove a book type" << endl;
+        cout << "4. Search for a book type" << endl;
+        cout << "Enter your choice: ";
+
+        cin >> choice;
+        cin.ignore();
+
+        switch (choice) {
+        case 1:
+            std::cout << "List of Book Type";
+            libraryCatalogue.listBookType();
+            break;
+        case 2:
+            std::cout << "Enter the type of the book to add: ";
+            std::getline(std::cin, title);
+            libraryCatalogue.addBookType(title);
+            break;
+        case 3:
+            std::cout << "Enter the type of the book to remove: ";
+            std::getline(std::cin, title);
+            libraryCatalogue.removeBookType(title);
+            break;
+        case 4:
+            std::cout << "Enter the type of the book to search: ";
+            std::getline(std::cin, title);
+            libraryCatalogue.searchBookType(title);
+            break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+            break;
+        }
+    } while (choice != 3);
+}
 int main() {
     Library library;
     vector<Account> accountList;
@@ -244,6 +288,7 @@ int main() {
     accountList.push_back(admin);
     BorrowingRecordManagement brm;
     PatronMangement pm;
+    Catalogue libraryCatalogue;
     int roleChoice = 100;
     do {
         cout << "\n--- Main Menu ---\n";
@@ -254,9 +299,10 @@ int main() {
         cout << "5. Manage library book returning\n";
         cout << "6. Manage Author" << endl;
         cout << "7. Manage Purchase Order" << endl;
-        cout << "8. Account Manager" << endl;
         cout << "8. Manage Patron" << endl;
         cout << "9. Manage Borrowing Record" << endl;
+        cout << "10. Manage Account" << endl;
+        cout << "11. Manage Book Catalogue" << endl;
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
         cin >> roleChoice;
@@ -314,6 +360,10 @@ int main() {
         }
         case 10:{
             accountMenu(accountList, admin);
+            break;
+        }
+        case 11: {
+            catalogueMenu(libraryCatalogue);
             break;
         }
         case 0:
