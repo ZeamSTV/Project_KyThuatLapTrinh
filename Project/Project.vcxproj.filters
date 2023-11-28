@@ -1,107 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="Author.cpp" />
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BorrowingRecord.cpp" />
+    <ClCompile Include="BorrowingRecordManagement.cpp" />
+    <ClCompile Include="Library.cpp" />
+    <ClCompile Include="LibraryStaff.cpp" />
+    <ClCompile Include="ListAuthor.cpp" />
+    <ClCompile Include="ListOrder.cpp" />
+    <ClCompile Include="Patron.cpp" />
+    <ClCompile Include="PatronMangement.cpp" />
+    <ClCompile Include="Project.cpp" />
+    <ClCompile Include="PublishingHouse.cpp" />
+    <ClCompile Include="PurchaseOrder.cpp" />
+    <ClCompile Include="Catalogue.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Project.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LibraryStaff.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PublishingHouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Library.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Book.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Author.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ListAuthor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PurchaseOrder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Patron.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ListOrder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BorrowingRecord.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Account.cpp">
-=======
-    <ClCompile Include="PatronMangement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BorrowingRecordManagement.cpp">
->>>>>>> 20b83764ca90e39aaa67ecd56d455f617267c7a5
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="LibraryStaff.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PublishingHouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Library.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Book.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Author.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ListAuthor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PurchaseOrder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BasicType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Patron.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ListOrder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BorrowingRecord.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Account.h">
-=======
-    <ClInclude Include="PatronMangement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BorrowingRecordManagement.h">
->>>>>>> 20b83764ca90e39aaa67ecd56d455f617267c7a5
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Account.h" />
+    <ClInclude Include="Author.h" />
+    <ClInclude Include="BasicType.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="BorrowingRecord.h" />
+    <ClInclude Include="BorrowingRecordManagement.h" />
+    <ClInclude Include="Library.h" />
+    <ClInclude Include="LibraryStaff.h" />
+    <ClInclude Include="ListAuthor.h" />
+    <ClInclude Include="ListOrder.h" />
+    <ClInclude Include="Patron.h" />
+    <ClInclude Include="PatronMangement.h" />
+    <ClInclude Include="PublishingHouse.h" />
+    <ClInclude Include="PurchaseOrder.h" />
+    <ClInclude Include="Catalogue.h" />
   </ItemGroup>
 </Project>
