@@ -18,25 +18,25 @@ void Author::addWrittenBooks ()
 {
 	Library lib;
 	string titleBook;
-	cout << "Enter title book";
+	cout << "Enter title book: ";
 	cin >> titleBook;
 	for (Book book: lib.books)
 	{
 		string temp = book.getTitle();
 		if (temp == titleBook) {
-			writtenbooks.push_back(book);
+			this->writtenbooks.push_back(book);
 			return;
 		}
 	}
 
-	cout << "Not found this book in library";
+	cout << "Not found this book in library \n";
 }
 
 void Author::showWrittenBooks()
 {
-	Library lib;
-	for (Book book : lib.books) {
-		cout << "----" << book.BookID << "-" << book.getTitle();
+	cout << "-----Written Books-----" << endl;
+	for (Book book : writtenbooks) {
+		cout << "----" << book.BookID << "-" << book.getTitle()<< endl;
 	}
 }
 

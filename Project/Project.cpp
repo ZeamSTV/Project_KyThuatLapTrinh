@@ -194,7 +194,7 @@ void bookMenu(Library& library) {
         default:
             cout << "Invalid choice. Please enter a valid choice." << endl;
         }
-    } while (choice != 5);
+    } while (choice != 6);
 }
 void accountMenu(vector<Account>& accountList, Account& admin) {
     int choice;

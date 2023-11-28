@@ -22,7 +22,7 @@ void ListAuthor::searchAuthor()
 	for (Author author: listAuthor)
 	{
 		if (idauthor == author.idAuthor) {
-			cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday;
+			cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday<<endl;
 			author.showWrittenBooks();
 		}
 	}
@@ -55,7 +55,7 @@ void ListAuthor::showAll()
 {
 	for (Author author : listAuthor)
 	{
-		cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday;
+		cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday<<endl;
 		author.showWrittenBooks();
 	}
 
@@ -71,6 +71,7 @@ void ListAuthor::displayMenu()
 		cout << "----3:Search Author" << endl;
 		cout << "----4:Delete Author" << endl;
 		cout << "----5:Update Author" << endl;
+		cout << "----6:Add Written Books" << endl;
 		cout << "----0: Quit" << endl;
 		cout << "Please choose Feature" << endl;
 		cin >> choose;
@@ -87,6 +88,24 @@ void ListAuthor::displayMenu()
 			break;
 		case 5: updateAuthor();
 			break;
+		case 6: {
+			string idauthor;
+			int c = 0;
+			cout << "Enter ID Author ";
+			cin >> idauthor;
+			for (Author au : listAuthor) {
+				if (idauthor == au.idAuthor) {
+					au.addWrittenBooks();
+					c = 1;
+					break;
+				}
+			}
+			if (c == 1) {
+				cout << "Add success \n";
+				break;
+			}
+			cout << "Not Found This Author" << endl;
+			break; }
 		default: cout << "Invalid choice. Please try again" << endl;
 			break;
 		}
