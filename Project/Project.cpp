@@ -333,11 +333,8 @@ int main() {
         case 5: {
             Patron* test = pm.searchPatron();
             if (test != nullptr) {
-                Book b = library.searchBookByID();
-                if (b.title != "") {
-                    test->returnBook(brm);
-                    test->displayBorrowHistoty();
-                }
+                test->returnBook(brm);
+                test->displayBorrowHistoty();
             }
             break;
         }

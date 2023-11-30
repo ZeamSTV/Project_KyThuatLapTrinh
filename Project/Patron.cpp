@@ -24,7 +24,7 @@ void Patron::borrowBook(Book& b, BorrowingRecordManagement& brm) {
 
 void Patron::returnBook(BorrowingRecordManagement& brm) {
 	int brSize = br.size();
-	if (brSize != 0) {
+	if (brSize != 0 && this->hasBook==true) {
 		//sach phai duoc tra sau 12 ngay hoac som hon
 		time_t rtDate = br[brSize - 1].issueDate + 14*24*60*60;
 		if (time(0) <= rtDate) {
@@ -43,6 +43,9 @@ void Patron::returnBook(BorrowingRecordManagement& brm) {
 			borrowingPrivilege = false;
 			cout << "return successfully but the patron is blocked because of overdue return\n";
 		}
+	}
+	else {
+		cout << "This patron is not currently borrowing books";
 	}
 }
 
