@@ -237,6 +237,12 @@ Library::Library() {
     book2.setBookID(2);
     book2.setTitle("Book Title 2");
     book2.setAuthor("Author 2");
+   
+    Book book3;
+    book3.setBookID(2);
+    book3.setTitle("BookTitle3");
+    book3.setAuthor("Author 3");
+
 
     books.push_back(book1);
     books.push_back(book2);

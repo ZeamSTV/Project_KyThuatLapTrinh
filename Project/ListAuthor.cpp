@@ -24,8 +24,11 @@ void ListAuthor::searchAuthor()
 		if (idauthor == author.idAuthor) {
 			cout << author.idAuthor << "-" << author.fullname << "-" << author.birthday<<endl;
 			author.showWrittenBooks();
+			return;
 		}
 	}
+
+	cout << "Not Found This Author \n";
 }
 void ListAuthor::updateAuthor()
 {
@@ -44,7 +47,7 @@ void ListAuthor::deteleAuthor()
 	for (auto it = listAuthor.begin(); it != listAuthor.end(); ++it) {
 		if (*it == authorDeleted) {
 			listAuthor.erase(it);
-			std::cout << "Object was deleted" << std::endl;
+			std::cout << "Success" << std::endl;
 			return;
 		}
 	}
@@ -63,6 +66,10 @@ void ListAuthor::showAll()
 
 void ListAuthor::displayMenu()
 {
+	listAuthor.push_back(Author("id1", "NguyenVanA", "01-10-1980"));
+	listAuthor.push_back(Author("id2", "NguyenVanB", "02-10-1980"));
+	listAuthor.push_back(Author("id3", "NguyenVanC", "03-10-1980"));
+	listAuthor.push_back(Author("id4", "NguyenVanD", "04-10-1980"));
 	int choose = 100;
 	do {
 		cout << "-------Menu Manage Author--------" << endl;
@@ -96,16 +103,10 @@ void ListAuthor::displayMenu()
 			for (Author au : listAuthor) {
 				if (idauthor == au.idAuthor) {
 					au.addWrittenBooks();
-					c = 1;
 					break;
 				}
 			}
-			if (c == 1) {
-				cout << "Add success \n";
-				break;
-			}
-			cout << "Not Found This Author" << endl;
-			break; }
+		}
 		default: cout << "Invalid choice. Please try again" << endl;
 			break;
 		}

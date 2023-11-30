@@ -25,6 +25,8 @@ void Author::addWrittenBooks ()
 		string temp = book.getTitle();
 		if (temp == titleBook) {
 			this->writtenbooks.push_back(book);
+			book.setAuthor(this->fullname);
+			cout << "Add Success \n";
 			return;
 		}
 	}

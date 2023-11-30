@@ -6,8 +6,8 @@
 void ListOrder::createOrder()
 {
 	PurchaseOrder order;
-	cout << "Enter patron: ";
-	cin >> order.patron.name;
+	cout << "Enter patronID: ";
+	cin >> order.patron.patronID;
 	cout << "Enter ID Book:";
 	string titleBook;
 	cin >> titleBook;
@@ -28,13 +28,16 @@ void ListOrder::createOrder()
 
 void ListOrder::searchOrder()
 {
-	cout << "Enter patron:";
-	string namepatron;
+	cout << "Enter patronID:";
+	int patronID;
+	cin >> patronID;
 	for (PurchaseOrder order : listOrder) {
-		if (order.patron.name == namepatron) {
+		if (order.patron.patronID == patronID) {
 			order.displayOrder();
+			return;
 		}
 	}
+	cout << "Not Found Patron \n";
 }
 
 void ListOrder::updateOrder()
@@ -45,14 +48,16 @@ void ListOrder::updateOrder()
 
 void ListOrder::deteleOrder()
 {
-	cout << "Enter patron:";
-	string namepatron;
+	cout << "Enter patronID:";
+	int patronID;
+	cin >> patronID;
 	for (PurchaseOrder order : listOrder) {
-		if (order.patron.name == namepatron) {
+		if (order.patron.patronID == patronID) {
 			auto it = std::find(listOrder.begin(), listOrder.end(), order);
 			listOrder.erase(it);
 		}
 	}
+
 }
 
 void ListOrder::showAll()
